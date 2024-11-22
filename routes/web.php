@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EtudiantController;
+use App\Http\Controllers\EntrepriseController;
+
 
 
 /*
@@ -17,3 +19,6 @@ use App\Http\Controllers\EtudiantController;
 
 
 Route::get('/', [EtudiantController::class, 'index']);
+
+Route::get('/', [EntrepriseController::class, 'index']);
+
