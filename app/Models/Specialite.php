@@ -13,7 +13,7 @@ class Specialite extends Model
     // Colonnes modifiables
     protected $fillable = [
         'num_spec',
-        'libelle',
+        'libelle'
     ];
 
     protected $primaryKey = 'num_spec';

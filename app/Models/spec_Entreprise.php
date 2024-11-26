@@ -13,7 +13,7 @@ class spec_Entreprise extends Model
     // Colonnes modifiables
     protected $fillable = [
         'num_entreprise',
-        'num_spec',
+        'num_spec'
     ];
     protected $primaryKey = 'num_spec';
 }

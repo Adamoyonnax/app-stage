@@ -2,6 +2,6 @@
 
 @section('content')
 <div>
-    CONTENUE
+ OK
 </div>
 @endsection

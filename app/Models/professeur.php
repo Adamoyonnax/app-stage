@@ -11,7 +11,6 @@ class professeur extends Model
 
     protected $table = 'professeur';
 
-    // Colonnes modifiables
     protected $fillable = [
         `num_prof`,
         `nom_prof`,

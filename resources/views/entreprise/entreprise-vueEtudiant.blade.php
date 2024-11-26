@@ -14,7 +14,7 @@
                     <tr>
                         <th>Opération</th>
                         <th>Entreprise</th>
-                        <th>Responsable</th>
+                        <th>Contact</th>
                         <th>Adresse</th>
                         <th>Site</th>
                         <th>Spécialité</th>
@@ -27,7 +27,7 @@
 
                             <td>{{ $entreprise->raison_sociale }}</td>
 
-                            <td>{{ $entreprise->nom_resp }}</td>
+                            <td>{{ $entreprise->nom_contact }}</td>
 
                             <td>
                                 @if ($entreprise->rue_entreprise || $entreprise->cp_entreprise)
