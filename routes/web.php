@@ -1,9 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\EntrepriseController;
-
 
 
 /*
@@ -17,8 +15,9 @@ use App\Http\Controllers\EntrepriseController;
 |
 */
 
+Route::get('/', function () {
+    return view('accueil');
+});
 
-Route::get('/', [EtudiantController::class, 'index']);
-
-Route::get('/', [EntrepriseController::class, 'index']);
+Route::get('/entreprise', [EntrepriseController::class, 'index']);
 

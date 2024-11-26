@@ -12,6 +12,6 @@ class EntrepriseController extends Controller
         $entreprises = Entreprise::with(['specialites' => function ($query) {
             $query->distinct();
         }])->get();
-        return view('accueil', compact('entreprises'));
+        return view('entreprise.entreprise-vueEtudiant', compact('entreprises'));
     }
 }
