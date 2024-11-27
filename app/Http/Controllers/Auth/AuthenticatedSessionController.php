@@ -9,6 +9,9 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use App\Models\Etudiant;
+use App\Models\Professeur;
+
 
 class AuthenticatedSessionController extends Controller
 {
@@ -20,17 +23,38 @@ class AuthenticatedSessionController extends Controller
         return view('auth.login');
     }
 
-    /**
-     * Handle an incoming authentication request.
-     */
-    public function store(LoginRequest $request): RedirectResponse
+
+    public function store(Request $request)
     {
-        $request->authenticate();
+        // Valider les données de la requête
+        $request->validate([
+            'login' => 'required|string',
+            'password' => 'required|string',
+        ]);
 
-        $request->session()->regenerate();
+        // Vérifier dans la table `etudiants`
+        $etudiant = Etudiant::where('login', $request->login)->first();
+        if ($etudiant && $request->password === $etudiant->mdp) {
+            // Authentifier l'étudiant
+            Auth::login($etudiant);
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+            return redirect()->route('accueil');
+        }
+
+        // Vérifier dans la table `professeurs`
+        $professeur = Professeur::where('login', $request->login)->first();
+        if ($professeur && $request->password === $professeur->mdp) {
+            // Authentifier le professeur
+            Auth::login($professeur);
+
+            return redirect()->route('accueil');
+        }
+
+        // Si aucune correspondance
+        return redirect()->to(url()->previous() . '?error=1')->withInput();
     }
+
+
 
     /**
      * Destroy an authenticated session.

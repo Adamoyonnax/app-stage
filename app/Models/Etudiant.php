@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Etudiant extends Model
+
+class Etudiant extends Authenticatable
 {
     use HasFactory;
 
@@ -25,6 +27,11 @@ class Etudiant extends Model
     public function classe()
     {
         return $this->belongsTo(Classe::class, 'num_classe');
+    }
+
+    public function getAuthPassword()
+    {
+        return $this->mdp; // Si le champ est `mdp` au lieu de `password`
     }
 
 }

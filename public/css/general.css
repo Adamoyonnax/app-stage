@@ -38,7 +38,7 @@ nav a
     height: 23px;
 }
 
-nav a.actif 
+nav a.actif
 {
     background-color: #3050F0;
 }
@@ -103,7 +103,7 @@ header h1
 {
     margin: 0px;
     font-size: 2.5em;
-    
+
 }
 
 header
@@ -165,7 +165,7 @@ article h2
     background-color: #222;
     border-radius: 5px;
     color: white;
-    padding: 20px 30px 20px 30px;    
+    padding: 20px 50px 20px 30px;
     margin: auto;
 }
 

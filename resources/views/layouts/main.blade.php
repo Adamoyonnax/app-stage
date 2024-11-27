@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site gestion de stage</title>
+    @vite('resources/css/app.css')
     <link rel="stylesheet" href="{{ asset('css/tableau.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bouton.css') }}">
     <link rel="stylesheet" href="{{ asset('css/general.css') }}">
@@ -13,7 +14,7 @@
 <body>
     <!-- Barre de navigation -->
     <nav>
-        <a id="onglet_accueil" class="actif" href="{{ url('/') }}"><span>Accueil</span></a>
+        <a id="onglet_accueil" class="actif" href="{{ url('/accueil') }}"><span>Accueil</span></a>
         <a id="onglet_entreprise" href="{{ url('/entreprise') }}"><span>Entreprise</span></a>
         <a id="onglet_stagiaire" href=""><span>Stagiaires</span></a>
         <a id="onglet_inscrire" href=""><span>Inscrire</span></a>
