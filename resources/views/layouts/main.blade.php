@@ -14,8 +14,8 @@
 <body>
     <!-- Barre de navigation -->
     <nav>
-        <a id="onglet_accueil" class="actif" href="{{ url('/accueil') }}"><span>Accueil</span></a>
-        <a id="onglet_entreprise" href="{{ url('/entreprise') }}"><span>Entreprise</span></a>
+        <a id="onglet_accueil" class="actif" href="{{ route('accueil') }}"><span>Accueil</span></a>
+        <a id="onglet_entreprise" href="{{ route('entreprise') }}"><span>Entreprise</span></a>
         <a id="onglet_stagiaire" href=""><span>Stagiaires</span></a>
         <a id="onglet_inscrire" href=""><span>Inscrire</span></a>
         <a id="onglet_aide" href=""><span>Aide</span></a>
@@ -34,5 +34,5 @@
         @yield('content')
     </div>
 
-    </body>
+</body>
 </html>

@@ -4,28 +4,34 @@ use App\Http\Controllers\EntrepriseController;
 use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AccueilController;
+use App\Http\Controllers\Auth\ConnexionController;
 
 use Illuminate\Support\Facades\Route;
 require __DIR__.'/auth.php';
-
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/', function () {
     return view('accueil');
 });
 
-Route::get('/entreprise', [EntrepriseController::class, 'index'])->name('entreprise');
+// Traitement de la connexion
+Route::post('/login', [ConnexionController::class, 'login'])->name('login');
+Route::post('/logout', [ConnexionController::class, 'logout'])->name('logout');
+
+Route::get('/etudiant/accueil', [EtudiantController::class, 'accueil'])->name('etudiant.accueil');
+Route::get('/professeur/accueil', [ProfesseurController::class, 'accueil'])->name('professeur.accueil');
+
+
+Route::get('/etudiant', [EntrepriseController::class, 'index'])->name('entreprise');
 Route::get('/accueil', [AccueilController::class, 'index'])->name('accueil');
+
+
+
+
+
+
+
+
+
 
 
 Route::middleware('auth')->group(function () {

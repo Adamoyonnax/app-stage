@@ -1,8 +1,8 @@
 module.exports = {
     content: [
-      "./resources/**/*.blade.php",  // inclut les fichiers Blade
-      "./resources/**/*.js",         // inclut les fichiers JavaScript
-      "./resources/**/*.vue",        // inclut les fichiers Vue
+      "./resources/**/*.blade.php",
+      "./resources/**/*.js",         
+      "./resources/**/*.vue",        
     ],
     theme: {
       extend: {},

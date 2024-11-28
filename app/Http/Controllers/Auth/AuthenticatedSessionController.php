@@ -18,10 +18,11 @@ class AuthenticatedSessionController extends Controller
     /**
      * Display the login view.
      */
-    public function create(): View
+
+    /* public function create(): View
     {
         return view('auth.login');
-    }
+    } */
 
 
     public function store(Request $request)
@@ -38,7 +39,7 @@ class AuthenticatedSessionController extends Controller
             // Authentifier l'étudiant
             Auth::login($etudiant);
 
-            return redirect()->route('accueil');
+            return redirect()->route('accueil-vueEtudiant');
         }
 
         // Vérifier dans la table `professeurs`
@@ -47,7 +48,7 @@ class AuthenticatedSessionController extends Controller
             // Authentifier le professeur
             Auth::login($professeur);
 
-            return redirect()->route('accueil');
+            return redirect()->route('accueil-vueProfesseur');
         }
 
         // Si aucune correspondance
