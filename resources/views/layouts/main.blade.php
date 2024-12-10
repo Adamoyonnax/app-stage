@@ -19,7 +19,7 @@
         <a id="onglet_stagiaire" href=""><span>Stagiaires</span></a>
         <a id="onglet_inscrire" href=""><span>Inscrire</span></a>
         <a id="onglet_aide" href=""><span>Aide</span></a>
-        <a id="onglet_deconnexion" href=""><span>Déconnexion</span></a>
+        <a id="onglet_deconnexion" href="{{ route('logout') }}"><span>Déconnexion</span></a>
         <div class="bottom">
             <a id="onglet_developper" href=""><span>Developper</span></a>
             <a id="onglet_reduire" href=""><span>Réduire</span></a>

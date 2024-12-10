@@ -24,23 +24,29 @@ class AuthController extends Controller
         if ($etudiant && $etudiant->mdp === $request->mdp) {
             Auth::guard('etudiant')->login($etudiant);
             session([
-                'user_status' => 'authenticated',  // Exemple de statut personnalisé
-                'etudiant_id' => $etudiant->num_etudiant,    // Ajouter l'ID de l'étudiant à la session
+                'user_type' => 'etudiant',
+                'etudiant_id' => $etudiant->num_etudiant,
+                'prenom' => $etudiant->prenom_etudiant,
             ]);
 
             if (Auth::guard('etudiant')->check()) {
-                dd('Authentification réussie. Redirection vers accueil...', Auth::guard('etudiant')->user());
+                // dd('Utilisateur authentifié en tant qu\'étudiant', Auth::guard('etudiant')->user());
                 return redirect()->route('etudiant.accueil');
             } else {
-                dd('Échec de l\'authentification');
+                // Débogage si l'utilisateur n'est pas authentifié
+                dd('L\'authentification a échoué malgré la connexion.');
             }
 
         }
         // Vérifier si l'utilisateur est un professeur
         $professeur = Professeur::where('login', $request->login)->first();
         if ($professeur && $professeur->mdp === $request->mdp) {
-            dd('je passeP');
             Auth::guard('professeur')->login($professeur);
+            session([
+                'user_type' => 'professeur',
+                'professeur_id' => $professeur->num_prof,
+                'prenom' => $professeur->prenom_prof,
+            ]);
             return redirect()->route('professeur.accueil');
         }
 

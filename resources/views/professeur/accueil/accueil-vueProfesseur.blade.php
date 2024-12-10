@@ -1,9 +1,10 @@
-@section('content')
-    <div class="container">
-        <h1>Bienvenue, {{ auth()->user()->login }} !</h1>
-        <p>Vous êtes connecté en tant que professeur.</p>
+@extends('layouts.main')
 
-        <!-- Ajoute ici d'autres informations ou sections spécifiques au professeur -->
-        <a href="{{ route('logout') }}">Déconnexion</a>
+@section('content')
+
+    <div class="container">
+        <h1>Page d'accueil de {{ session('prenom') }}</h1>
+        <p>Contenu de la page d'accueil du professeur.</p>
     </div>
 @endsection
+
