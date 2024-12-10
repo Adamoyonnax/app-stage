@@ -5,7 +5,7 @@
 
         <h1 class="text-center">Gestion des stages</h1>
         <p class="text-center">Vous n'êtes pas connecté. Identifiez-vous pour poursuivre la navigation.</p>
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('connexion') }}">
             @csrf
 
             <!-- Login -->
@@ -16,9 +16,15 @@
 
             <!-- Mot de passe -->
             <div class="mb-4">
-                <label for="password" class="block text-sm font-medium text-gray-300">Mot de passe :</label>
-                <input type="password" id="password" name="password" class="input" style="color: black" required>
+                <label for="mdp" class="block text-sm font-medium text-gray-300">Mot de passe :</label>
+                <input type="password" id="mdp" name="mdp" class="input" style="color: black" required>
             </div>
+
+            @if(session('error_connexion'))
+            <div class="alert alert-danger">
+                {{ session('error_connexion') }}
+            </div>
+            @endif
 
             <!-- Bouton de connexion -->
             <div class="text-center">

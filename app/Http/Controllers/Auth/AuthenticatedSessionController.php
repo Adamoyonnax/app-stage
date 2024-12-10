@@ -27,39 +27,33 @@ class AuthenticatedSessionController extends Controller
 
     public function store(Request $request)
     {
-        // Valider les données de la requête
         $request->validate([
             'login' => 'required|string',
-            'password' => 'required|string',
+            'mdp' => 'required|string',
         ]);
 
-        // Vérifier dans la table `etudiants`
+        // Vérification dans la table 'etudiant'
         $etudiant = Etudiant::where('login', $request->login)->first();
-        if ($etudiant && $request->password === $etudiant->mdp) {
-            // Authentifier l'étudiant
+        if ($etudiant && Hash::check($request->mdp, $etudiant->mdp)) {
             Auth::login($etudiant);
-
-            return redirect()->route('accueil-vueEtudiant');
+            return redirect()->route('etudiant.accueil');
         }
 
-        // Vérifier dans la table `professeurs`
+        // Vérification dans la table 'professeur'
         $professeur = Professeur::where('login', $request->login)->first();
-        if ($professeur && $request->password === $professeur->mdp) {
-            // Authentifier le professeur
+        if ($professeur && Hash::check($request->mdp, $professeur->mdp)) {
             Auth::login($professeur);
-
-            return redirect()->route('accueil-vueProfesseur');
+            return redirect()->route('professeur.accueil');
         }
 
-        // Si aucune correspondance
-        return redirect()->to(url()->previous() . '?error=1')->withInput();
+        return redirect()->route('login')->withErrors(['error_connexion' => 'Identifiants incorrects']);
     }
 
 
 
     /**
      * Destroy an authenticated session.
-     */
+    */
     public function destroy(Request $request): RedirectResponse
     {
         Auth::guard('web')->logout();

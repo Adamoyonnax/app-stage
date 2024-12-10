@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class ProfesseurController extends Controller
 {
-    public function create(): View
+    public function accueil()
     {
-        return view('professeur.accueil-vueProfesseur');
+        return view('professeur.accueil.accueil-vueProfesseur'); // Afficher la vue d'accueil du professeur
     }
 }

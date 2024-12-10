@@ -40,6 +40,18 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'professeur' => [
+            'driver' => 'session',
+            'provider' => 'professeurs',
+        ],
+        'etudiant' => [
+            'driver' => 'session',
+            'provider' => 'etudiants',
+        ],
+        'entreprise' => [
+            'driver' => 'session',
+            'provider' => 'entreprises',
+        ],
     ],
 
     /*
@@ -64,13 +76,19 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'professeurs' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\professeur::class,  // Assure-toi que le modèle 'Professeur' existe
+        ],
+        'etudiants' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Etudiant::class,  // Idem pour 'Etudiant'
+        ],
+        'entreprises' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Entreprise::class,  // Et 'Entreprise'
+        ],
     ],
-
     /*
     |--------------------------------------------------------------------------
     | Resetting Passwords
