@@ -28,15 +28,7 @@ class AuthController extends Controller
                 'etudiant_id' => $etudiant->num_etudiant,
                 'prenom' => $etudiant->prenom_etudiant,
             ]);
-
-            if (Auth::guard('etudiant')->check()) {
-                // dd('Utilisateur authentifié en tant qu\'étudiant', Auth::guard('etudiant')->user());
-                return redirect()->route('etudiant.accueil');
-            } else {
-                // Débogage si l'utilisateur n'est pas authentifié
-                dd('L\'authentification a échoué malgré la connexion.');
-            }
-
+            return redirect()->route('etudiant.accueil');
         }
         // Vérifier si l'utilisateur est un professeur
         $professeur = Professeur::where('login', $request->login)->first();
