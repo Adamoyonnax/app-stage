@@ -17,18 +17,13 @@ Route::get('/', function () {
 
 
 Route::post('/connexion', [AuthController::class, 'connexion'])->name('connexion');
+
 Route::post('/logout', function () {
-    auth()->logout();
+    Auth::logout();  // Déconnexion de l'utilisateur
     return redirect()->route('accueil');
 })->name('logout');
 
-Route::middleware('auth')->group(function() {
-    // Page d'accueil de l'étudiant
-    Route::get('/etudiant/accueil', [EtudiantController::class, 'accueil'])->name('etudiant.accueil');
-
-    // Page d'accueil du professeur
-    Route::get('/professeur/accueil', [ProfesseurController::class, 'accueil'])->name('professeur.accueil');
-});
+Route::middleware('auth:etudiant')->get('/etudiant/accueil', [EtudiantController::class, 'accueil'])->name('etudiant.accueil');
 
 
 Route::get('/etudiant', [EntrepriseController::class, 'index'])->name('entreprise');
