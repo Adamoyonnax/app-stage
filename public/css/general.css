@@ -81,7 +81,13 @@ h2 {font-size: 1.2em;}
 #onglet_inscrire::before {background-image:url(../icons/inscrire.png);}
 #onglet_aide::before {background-image:url(../icons/aide.png);}
 #onglet_deconnection::before {background-image:url(../icons/deconnection.png);}
-
+#voir::before {background-image:url(../icons/voir.png);}
+#supprimer::before {background-image:url(../icons/supprimer.png);}
+#modifier::before {background-image:url(../icons/modifier.png);}
+#voir::before {background-image:url(../icons/voir.png);}
+#lien::before {background-image:url(../icons/lien.png);}
+#inscrire::before {background-image:url(../icons/inscrire.png);}
+#ajouter::before {background-image:url(../icons/ajouter.png);}
 #icon_droite::before {background-image:url(../icons/droite.png);}
 #icon_gauche::before {background-image:url(../icons/gauche.png);}
 

@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use Illuminate\Foundation\Auth\User as Authentificable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Entreprise extends Model
+class Entreprise extends Authentificable
 {
     use HasFactory;
 
@@ -25,7 +26,9 @@ class Entreprise extends Model
         'observation',
         'site_entreprise',
         'niveau',
-        'en_activite'
+        'en_activite',
+        'login',
+        'mdp'
     ];
 
     protected $primaryKey = 'num_entreprise';

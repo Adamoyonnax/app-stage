@@ -19,18 +19,16 @@ Route::get('/', function () {
 
 Route::post('/connexion', [AuthController::class, 'connexion'])->name('connexion');
 
-Route::post('/logout', function () {
-    Auth::logout();  // Déconnexion de l'utilisateur
-    return redirect()->route('accueil');
-})->name('logout');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-// Route::middleware('auth:etudiant')->get('/etudiant/accueil', [EtudiantController::class, 'accueil'])->name('etudiant.accueil');
 Route::get('/etudiant/accueil', [EtudiantController::class, 'accueil'])->name('etudiant.accueil');
+Route::get('/etudiant/entreprise', [EntrepriseController::class, 'index'])->name('entreprise');
+Route::get('etudiant/entreprise/{id}', [EntrepriseController::class, 'show'])->name('entreprise.show');
+
+
 Route::get('/professeur/accueil', [ProfesseurController::class, 'accueil'])->name('professeur.accueil');
 
-
-Route::get('/etudiant', [EntrepriseController::class, 'index'])->name('entreprise');
-
+Route::get('/entreprise/accueil', [EntrepriseController::class, 'accueil'])->name('entreprise.accueil');
 
 
 

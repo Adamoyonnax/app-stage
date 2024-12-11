@@ -14,7 +14,7 @@
 <body>
     <!-- Barre de navigation -->
     <nav>
-        <a id="onglet_accueil" class="actif" href="{{ route('accueil') }}"><span>Accueil</span></a>
+        <a id="onglet_accueil" class="actif" href="{{ session('user_type') === 'professeur' ? route('professeur.accueil') : (session('user_type') === 'entreprise' ? route('entreprise.accueil') : (session('user_type') === 'etudiant' ? route('etudiant.accueil') : route('accueil'))) }}"><span>Accueil</span></a>
         <a id="onglet_entreprise" href="{{ route('entreprise') }}"><span>Entreprise</span></a>
         <a id="onglet_stagiaire" href=""><span>Stagiaires</span></a>
         <a id="onglet_inscrire" href=""><span>Inscrire</span></a>

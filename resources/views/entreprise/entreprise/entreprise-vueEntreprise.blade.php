@@ -23,7 +23,9 @@
                 <tbody>
                     @foreach($entreprises as $entreprise)
                         <tr>
-                            <td>Rien pour le moment</td>
+                            <td>
+                                <a href= "{{ route('entreprise.show', ['id' => $entreprise->num_entreprise]) }}"><img src='{{asset('icons/voir.png')}}' style="height: 20px; width : 20px"'></a>
+                            </td>
 
                             <td>{{ $entreprise->raison_sociale }}</td>
 
