@@ -30,19 +30,9 @@ class AuthController extends Controller
                 'etudiant_id' => $etudiant->num_etudiant,
                 'prenom' => $etudiant->prenom_etudiant,
             ]);
-<<<<<<< HEAD
-
-            if (Auth::guard('etudiant')->check()) {
-                return redirect()->route('etudiant.accueil');
-            } else {
-                // Débogage si l'utilisateur n'est pas authentifié
-                dd('L\'authentification a échoué malgré la connexion.');
-            }
-
-=======
             return redirect()->route('etudiant.accueil');
->>>>>>> e666abb81ebdaa8c65e8186e555fb7ec2c1fb3f2
         }
+        
         // Vérifier si l'utilisateur est un professeur
         $professeur = Professeur::where('login', $request->login)->first();
         if ($professeur && $professeur->mdp === $request->mdp) {
