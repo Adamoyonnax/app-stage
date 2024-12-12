@@ -11,10 +11,9 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 // require __DIR__.'/auth.php';
 
-// Page d'accueil de l'application (publique)
 Route::get('/', function () {
     return view('accueil');
-})->name('accueil');;
+})->name('accueil');
 
 
 Route::post('/connexion', [AuthController::class, 'connexion'])->name('connexion');
