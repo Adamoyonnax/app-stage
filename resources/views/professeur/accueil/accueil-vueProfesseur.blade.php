@@ -3,8 +3,12 @@
 @section('content')
 
     <div class="container">
-        <h1>Page d'accueil de {{ session('prenom') }}</h1>
+        <h1>Page d'accueil de {{ $professeur->prenom_prof }}</h1>
         <p>Contenu de la page d'accueil du professeur.</p>
+
+        <a href="{{ route('professeur.edit') }}">
+            <button type="button">Modifier mon profil</button>
+        </a>
     </div>
     <form action="{{ route('logout') }}" method="POST">
         @csrf

@@ -23,6 +23,10 @@ class Etudiant extends Authenticatable
         'num_classe',
         'en_activite'
     ];
+    protected $primaryKey = 'num_etudiant';
+    public $timestamps = false;
+
+
 
     public function classe()
     {

@@ -32,6 +32,7 @@ class Entreprise extends Authentificable
     ];
 
     protected $primaryKey = 'num_entreprise';
+    public $timestamps = false;
 
 
     public function specialites()

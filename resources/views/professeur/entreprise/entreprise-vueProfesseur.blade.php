@@ -3,7 +3,7 @@
 @section('content')
 <article id="entreprise">
     <h1>Bienvenue sur le site</h1>
-    <h2>Liste des entreprises</h2>
+    <h2>Liste des entreprises</h2> <a href= "{{ route('entreprise.create') }}"><img src='{{asset('icons/ajouter.png')}}' style="height: 20px; width : 20px"> Ajouter une entreprise</a>
 
     @if($entreprises->isEmpty())
         <p>Aucune entreprise trouvée.</p>

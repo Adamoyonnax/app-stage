@@ -12,6 +12,8 @@ class professeur extends Authenticatable
     use HasFactory;
 
     protected $table = 'professeur';
+    protected $primaryKey = 'num_prof';
+    public $timestamps = false;
 
     protected $fillable = [
         'num_prof',
