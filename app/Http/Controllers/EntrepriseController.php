@@ -42,7 +42,7 @@ class EntrepriseController extends Controller
         $entreprise = Entreprise::with('specialites')->findOrFail($id);
 
         // Retourner une vue avec les détails de l'entreprise
-        return view('etudiant.entreprise.entreprise-detailEntreprise');
+        return view('etudiant.entreprise.entreprise-detailEntreprise', compact('entreprise'));
     }
 
     public function store(Request $request)
