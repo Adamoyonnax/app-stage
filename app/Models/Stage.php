@@ -8,9 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Stage extends Model
 {
     use HasFactory;
+
+    //  Nom de la table dans la base de données
     protected $table = 'stage';
 
-    // Colonnes modifiables
+    // Attributs de la base de données
     protected $fillable = [
         'num_stage',
         'debut_stage',
@@ -23,6 +25,10 @@ class Stage extends Model
         'num_entreprise'
     ];
 
+    // Attribut primaire et unique
     protected $primaryKey = 'num_stage';
+
+    // Désactive la création d'attributs 'created_at' et 'updated_at'
+    public $timestamps = false;
 
 }

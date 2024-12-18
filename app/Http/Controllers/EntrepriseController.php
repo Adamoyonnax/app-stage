@@ -23,8 +23,9 @@ class EntrepriseController extends Controller
             $query->distinct();
         }])->get();
 
+
         // Retourne la vue des entreprises pour l'utilisateur entreprise (avec les spécialités)
-        return view('entreprise.entreprise.entreprise-vueEntreprise', compact('specialites'));
+        return view('entreprise.entreprise.entreprise-vueEntreprise', compact('entreprises'));
     }
 
     // Méthode pour afficher le formulaire de création d'une entreprise
